@@ -8,11 +8,11 @@ const types = {
   password: {
     regex: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
     message:
-      'A senha precisa ter 1 caracter maíusculo, 1 minúsculo e 1 digito. Com no mínimo 8 caracteres.',
+      'A senha precisa conter letras e números, com no mínimo 8 caracteres',
   },
   number: {
     regex: /^\d+$/,
-    message: 'Utilize números apenas.',
+    message: 'Utilize apenas números',
   },
 };
 
@@ -20,7 +20,7 @@ const useForm = (type) => {
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(null);
 
-  function validate(value) {
+  const validate = (value) => {
     if (type === false) return true;
     if (value.length === 0) {
       setError('Preencha um valor.');
@@ -32,12 +32,12 @@ const useForm = (type) => {
       setError(null);
       return true;
     }
-  }
+  };
 
-  function onChange({ target }) {
+  const onChange = ({ target }) => {
     if (error) validate(target.value);
     setValue(target.value);
-  }
+  };
 
   return {
     value,

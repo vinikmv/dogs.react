@@ -31,7 +31,7 @@
 .nav a.active {
   background: white;
   box-shadow: 0 0 0 3px #fea;
-  border-color: #fb1;
+  border-color: #fe1;
 }
 
 .nav a.active svg > * {
@@ -43,7 +43,7 @@
   border-radius: 0.2rem;
   height: 40px;
   width: 40px;
-  padding: 0px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,7 +74,7 @@
 }
 
 .mobileButtonActive::after {
-  transform: rotate(90deg);
+  transform: rotate(-90deg);
   width: 4px;
   height: 4px;
   box-shadow: 0 8px currentColor, 0 -8px currentColor;
@@ -97,8 +97,8 @@
 .navMobileActive {
   transition: 0.3s;
   transform: initial;
-  opacity: 1;
   pointer-events: initial;
+  opacity: 1;
   z-index: 100;
 }
 

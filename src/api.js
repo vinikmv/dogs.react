@@ -1,6 +1,6 @@
 export const API_URL = 'https://dogsapi.origamid.dev/json';
 
-export const TOKEN_POST = (body) => {
+export function TOKEN_POST(body) {
   return {
     url: API_URL + '/jwt-auth/v1/token',
     options: {
@@ -11,8 +11,9 @@ export const TOKEN_POST = (body) => {
       body: JSON.stringify(body),
     },
   };
-};
-export const TOKEN_VALIDATE_POST = (token) => {
+}
+
+export function TOKEN_VALIDATE_POST(token) {
   return {
     url: API_URL + '/jwt-auth/v1/token/validate',
     options: {
@@ -22,7 +23,7 @@ export const TOKEN_VALIDATE_POST = (token) => {
       },
     },
   };
-};
+}
 
 export function USER_GET(token) {
   return {
@@ -72,12 +73,6 @@ export function PHOTOS_GET({ page, total, user }) {
   };
 }
 
-export function ONE_PHOTO_GET(id) {
-  return {
-    url: `${API_URL}/api/photo/${id}`,
-  };
-}
-
 export function PHOTO_GET(id) {
   return {
     url: `${API_URL}/api/photo/${id}`,
@@ -123,6 +118,31 @@ export function PASSWORD_LOST(body) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PASSWORD_RESET(body) {
+  return {
+    url: API_URL + '/api/password/reset',
+    options: {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+}
+
+export function STATS_GET() {
+  return {
+    url: API_URL + '/api/stats',
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + window.localStorage.getItem('token'),
+      },
     },
   };
 }

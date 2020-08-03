@@ -66,7 +66,7 @@
   text-decoration: underline;
 }
 
-.views::before {
+.visualizacoes::before {
   content: '';
   display: inline-block;
   width: 16px;
@@ -86,6 +86,7 @@
 .attributes li {
   margin-right: 2rem;
 }
+
 .attributes li::before {
   content: '';
   display: inline-block;
